@@ -1,0 +1,25 @@
+pipeline{
+    agent any
+    stages{
+        stage{
+            echo "building..."
+        }
+        post{
+            always{
+                mail to: "jubalchrista@gmail.com"
+                subject: "build status email"
+                body: "build log attached!"
+            }
+        }
+        stage("test"){
+            steps{
+                echo "testing..."
+            }
+        }
+        stage("deploy"){
+            steps{
+                echo "deploying..."
+            }
+        }
+    }
+}
