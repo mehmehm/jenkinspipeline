@@ -17,11 +17,7 @@ pipeline{
                 }
                 post{
                     success{
-                        mail to: "jubalchrista@gmail.com",
-                        subject: "unit tests results",
-                        body: "unit tests ran successfully!",
-                        mimeType: 'text/plain',
-                        attachmentsPattern: '**/build.log'
+                        emailext attachLog: true, body: 'Unit tests ran successfully!', subject: 'unit test results', to: 'jubalchrista@gmail.com'
                     }
                 }
             }
