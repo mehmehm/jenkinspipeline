@@ -20,6 +20,7 @@ pipeline{
                         mail to: "jubalchrista@gmail.com",
                         subject: "unit tests results",
                         body: "unit tests ran successfully!",
+                        mimeType: 'text/plain',
                         attachmentsPattern: '**/build.log'
                     }
                 }
