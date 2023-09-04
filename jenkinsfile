@@ -1,80 +1,81 @@
 pipeline{
     agent any
-    stages{
-        stage("build"){
-            steps{
-                echo "building using maven build automation tool..."
-            }
-            post{
-                always{
-                    echo "build successful!"
+        stages{
+            stage("build"){
+                steps{
+                    echo "building using maven build automation tool..."
+                }
+                post{
+                    always{
+                        echo "build successful!"
+                    }
                 }
             }
-        }
-        stage("Unit testing and integration"){
-            steps{
-                echo "Commencing unit testing using Selenium test automation"
-            }
-            post{
-                success{
-                    mail to: "jubalchrista@gmail.com",
-                    subject: "unit tests results",
-                    body: "unit tests ran successfully!"
+            stage("Unit testing and integration"){
+                steps{
+                    echo "Commencing unit testing using Selenium test automation"
+                }
+                post{
+                    success{
+                        mail to: "jubalchrista@gmail.com",
+                        subject: "unit tests results",
+                        body: "unit tests ran successfully!"
+                    }
                 }
             }
-        }
-        stage("Code analysis"){
-            steps{
-                echo "Conducting code analysis using ESLint... "
-            }
-            post{
-                always{
-                    echo "Analysis complete"
-                    echo "Code is well written and indented"
+            stage("Code analysis"){
+                steps{
+                    echo "Conducting code analysis using ESLint... "
+                }
+                post{
+                    always{
+                        echo "Analysis complete"
+                        echo "Code is well written and indented"
+                    }
                 }
             }
-        }
-        stage("Security scan"){
-            steps{
-                echo "conducting a security scan using Nessus..."
-            }
-            post{
-                always{
-                    echo "Scan complete. Code is safe and secure!"
-            }
-        }
-        stage("Deploy to staging"){
-            steps{
-                echo "deploying the application to staging server using AWS..."
-            }
-            post{
-                always{
-                    echo "Success. Project is now deployed in the staging environment!"
+            stage("Security scan"){
+                steps{
+                    echo "conducting a security scan using Nessus..."
+                }
+                post{
+                    always{
+                        echo "Scan complete. Code is safe and secure!"
                 }
             }
-        }
-        stage("integration tests in staging"){
-            steps{
-                echo "Initiating integration tests"
-                echo "test I..."
-                echo "test II..."
-                echo "test III..."
-            }
-            post{
-                always{
-                    echo "test I success"
-                    echo "test II success"
-                    echo "test III success"
+            stage("Deploy to staging"){
+                steps{
+                    echo "deploying the application to staging server using AWS..."
+                }
+                post{
+                    always{
+                        echo "Success. Project is now deployed in the staging environment!"
+                    }
                 }
             }
-        }
-        stage("deployment to production"){
-            steps{
-                echo "deploying the application to production server..."
+            stage("integration tests in staging"){
+                steps{
+                    echo "Initiating integration tests"
+                    echo "test I..."
+                    echo "test II..."
+                    echo "test III..."
+                }
+                post{
+                    always{
+                        echo "test I success"
+                        echo "test II success"
+                        echo "test III success"
+                    }
+                }
             }
-            post{
-                always{
-                    echo "deployment successful!"
+            stage("deployment to production"){
+                steps{
+                    echo "deploying the application to production server..."
+                }
+                post{
+                    always{
+                        echo "deployment successful!"
+                    }
                 }
             }
         }
