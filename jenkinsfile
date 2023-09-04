@@ -41,6 +41,7 @@ pipeline{
                 post{
                     always{
                         echo "Scan complete. Code is safe and secure!"
+                    }
                 }
             }
             stage("Deploy to staging"){
