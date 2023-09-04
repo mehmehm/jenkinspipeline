@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage{
+        stage("build"){
             echo "building..."
         }
         post{
@@ -11,6 +11,7 @@ pipeline{
                 body: "build log attached!"
             }
         }
+    }
         stage("test"){
             steps{
                 echo "testing..."
