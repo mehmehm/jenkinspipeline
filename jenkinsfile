@@ -17,10 +17,10 @@ pipeline{
                 }
                 post{
                     success{
-                        emailext attachLog: true, attachmentsPattern: ' **/build.log', body: 'Unit tests ran successfully!', subject: 'unit test results', to: 'jubalchrista@gmail.com'
+                        body: 'Unit tests ran successfully!', subject: 'unit test results', to: 'jubalchrista@gmail.com'
                     }
                     failure{
-                        emailext attachLog: true, attachmentsPattern: ' **/build.log', body: 'Unit tests were unsuccessful', subject: 'unit test results', to: 'jubalchrista@gmail.com'
+                        body: 'Unit tests were unsuccessful', subject: 'unit test results', to: 'jubalchrista@gmail.com'
                     }
                 }
             }
