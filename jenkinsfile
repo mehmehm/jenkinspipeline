@@ -5,7 +5,6 @@ pipeline{
             steps{
                 echo "building..."
             }
-        }
         post{
             always{
                 mail to: "jubalchrista@gmail.com",
