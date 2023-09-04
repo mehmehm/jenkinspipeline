@@ -34,7 +34,7 @@ pipeline{
                 }
             }
         }
-        stage("Security scan")
+        stage("Security scan"){
             steps{
                 echo "conducting a security scan using Nessus..."
             }
@@ -78,4 +78,5 @@ pipeline{
             }
         }
     }
+}
 
