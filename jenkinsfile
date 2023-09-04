@@ -39,7 +39,8 @@ pipeline{
                 echo "conducting a security scan using Nessus..."
             }
             post{
-                echo "Scan complete. Code is safe and secure!"
+                always{
+                    echo "Scan complete. Code is safe and secure!"
             }
         }
         stage("Deploy to staging"){
