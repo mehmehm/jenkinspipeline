@@ -19,7 +19,7 @@ pipeline{
                     success{
                         mail to: "jubalchrista@gmail.com",
                         subject: "unit tests results",
-                        body: "unit tests ran successfully!"
+                        body: "unit tests ran successfully!",
                         attachmentsPattern: '**/build.log'
                     }
                 }
