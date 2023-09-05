@@ -17,9 +17,7 @@ pipeline{
                 }
                 post{
                     success{
-                        mail to: "jubalchrista@gmail.com",
-                        subject: "unit testing results",
-                        body: "unit test ran successfully!"
+                        emailext body: 'unit testing successful!', subject: 'Unit testing results', to: 'jubalchrista@gmail.com'
                     }
                     failure{
                         emailext body: 'unit testing successful!', subject: 'Unit testing results', to: 'jubalchrista@gmail.com'
