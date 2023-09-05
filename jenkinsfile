@@ -40,8 +40,11 @@ pipeline{
                     echo "conducting a security scan using Nessus..."
                 }
                 post{
-                    always{
-                        echo "Scan complete. Code is safe and secure!"
+                    success{
+                        emailext attachLog: true, body: 'Security scan complete. Your code is safe and secure!', subject: 'security scan results', to: 'jubalchrista@gmail.com'
+                    }
+                    failure{
+                        emailext attachLog: true, body: 'Warning! Code is unsecure', subject: 'security scan results', to: 'jubalchrista@gmail.com'
                     }
                 }
             }
